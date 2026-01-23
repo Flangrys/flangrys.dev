@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sans: "Atkinson Hyperlegible", system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-serif: "Bree Serif", Georgia, Cambria, "Times New Roman", Times, serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+@layer base {
+    body {
+        font-family: var(--font-sans);
+    }
+}
+
+@layer base {
+    html {
+        color-scheme: light;
+    }
+    
+    html.dark {
+        color-scheme: dark;
+    }
+
+    #root {
+        @apply h-dvh w-dvw;
+    }
+}
+
+@keyframes gradient-x {
+    0% {
+        background-position: 0 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
+    }
+}
