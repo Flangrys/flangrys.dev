@@ -1,10 +1,11 @@
-import {LandingHero} from "../components/LandingHero.tsx";
+import {ExperienceSection} from "../components/ExperienceSection.tsx";
+import {LandingSection} from "../components/LandingSection.tsx";
 
 export default function PortfolioView() {
     return (
-        <main className="pt-16">
-            <LandingHero/>
-            <section></section>
+        <main>
+            <LandingSection/>
+            <ExperienceSection/>
         </main>
     );
 }

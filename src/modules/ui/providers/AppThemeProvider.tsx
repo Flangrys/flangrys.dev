@@ -4,17 +4,23 @@ import {useEffect, useState} from "react";
 
 export default function AppThemeProvider({children}: ThemeProviderProps) {
     const [theme, setThemeState] = useState<Theme>(() => {
+        if (!window) return "dark";
 
-        if (!window) return 'light';
+        const savedTheme = window.localStorage.getItem('theme');
 
-        const saved = localStorage.getItem('theme') as Theme;
+        switch (savedTheme) {
+            case "light":
+            case "dark":
+                return savedTheme;
 
-        if (saved) return saved;
-
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            default:
+                return "dark";
+        }
     });
 
     useEffect(() => {
+        if (!window) return;
+
         const root = document.documentElement;
 
         root.classList.remove('light', 'dark');
@@ -23,13 +29,13 @@ export default function AppThemeProvider({children}: ThemeProviderProps) {
         localStorage.setItem('theme', theme);
     }, [theme]);
 
-    const toggleTheme = () => {
-        setThemeState(prev => prev === 'light' ? 'dark' : 'light');
-    };
+    function toggleTheme() {
+        setThemeState(prev => prev == "light" ? "dark" : "light");
+    }
 
-    const setTheme = (newTheme: Theme) => {
+    function setTheme(newTheme: Theme) {
         setThemeState(newTheme);
-    };
+    }
 
     return (
         <ThemeContext.Provider value={{theme, toggleTheme, setTheme}}>

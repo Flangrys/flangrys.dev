@@ -5,15 +5,20 @@ import {useThemeContext} from "../../hooks/useThemeContext.ts";
 export default function AppThemeButton() {
     const {theme, toggleTheme} = useThemeContext();
 
-    const themeIcon = theme === 'light' ? <SvgThemeDark/> : <SvgThemeLight/>;
+    const themeClasses = {
+        light: "bg-indigo-200 text-indigo-800",
+        dark: "bg-indigo-950 text-indigo-100",
+    }
 
     return (
-        <div className="fixed bottom-4 right-4 z-10">
+        <div className="fixed bottom-4 right-4 z-20">
             <button
                 onClick={toggleTheme}
-                className={"p-2 rounded-full shadow-lg"}
+                className={`p-2 rounded-full shadow-lg ${themeClasses[theme]}`}
                 aria-label="Cambiar tema"
-            >{themeIcon}</button>
+            >
+                {theme === 'light' ? <SvgThemeDark/> : <SvgThemeLight/>}
+            </button>
         </div>
     )
 }

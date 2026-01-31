@@ -1,7 +1,7 @@
 import type {ReactNode} from "react";
-import AppThemeButton from "./AppThemeButton.tsx";
-import {AppNavbar} from "./AppNavbar.tsx";
-import Container from "../layout/Container.tsx";
+import AppThemeButton from "../components/app/AppThemeButton.tsx";
+import {AppNavbar} from "../components/app/AppNavbar.tsx";
+import {AppFooter} from "../components/app/AppFooter.tsx";
 
 type BaseLayoutProps = {
     children: ReactNode;
@@ -13,10 +13,11 @@ export function AppRoot(props: BaseLayoutProps) {
     return (
         <>
             <AppNavbar/>
-            <Container className="max-w-5xl">
+            <div className="container mx-auto max-w-5xl">
                 {children}
-            </Container>
+            </div>
             <AppThemeButton/>
+            <AppFooter/>
         </>
     )
 }
