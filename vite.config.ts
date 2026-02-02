@@ -4,7 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 import svgr from "vite-plugin-svgr";
 
 export default defineConfig({
-    base: "https://flangrys.github.io/flangrys.dev",
+    base: "/flangrys.dev",
     plugins: [
         react(),
         tailwindcss(),
