@@ -1,28 +1,10 @@
-import type {ReactNode} from "react";
+import type {AnchorHTMLAttributes, HTMLAttributes, PropsWithChildren} from "react";
+import type {ContainerVariant} from "./theme.interface.ts";
 
-export interface HasChildren {
-    children?: ReactNode;
+export interface ContainerProps extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {
+    variant?: ContainerVariant;
 }
 
-export interface ContainerProps extends HasChildren {
-    className?: string;
-}
-
-export interface ButtonProps extends HasChildren {
-    round?: string;
-    roundSize?: string;
-}
-
-export interface LinkProps extends ButtonProps {
-    location?: string;
-
+export interface LinkProps extends PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>> {
     to: string;
 }
-
-
-export interface ErrorBoundaryProps {
-    heading: string;
-    summary: string;
-    contact: string;
-}
-
