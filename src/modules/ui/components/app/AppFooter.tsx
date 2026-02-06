@@ -1,4 +1,4 @@
-import {Link} from "wouter";
+import {Link} from "react-router";
 
 export function AppFooter() {
     return (
@@ -13,20 +13,15 @@ export function AppFooter() {
                             <p className="font-sans text-md">Todos los derechos reservados.</p>
                         </div>
 
-                        <nav className="flex flex-col gap-4">
-                            <h3>Profesional</h3>
-                            <Link to="/">Perfil</Link>
-                            <Link to="/">Experiencia</Link>
-                            <Link to="/">Proyectos</Link>
-                        </nav>
 
-                        <nav className="flex flex-col gap-4">
+                        <nav className="flex flex-col gap-4 w-1/2">
                             <h3>Contacto</h3>
-                            <Link to="/">Linkedin</Link>
-                            <Link to="/">Github</Link>
+                            <a href="https://linkedin.com/in/francisco-matias-prieto-giorgis">Linkedin</a>
+                            <a href="https://github.com/flangrys">Github</a>
+                            <Link to="./professional/contact/">Email</Link>
                         </nav>
 
-                        <div className="flex place-content-center w-full pt-12">
+                        <div className="flex place-content-center w-full pt-8">
                             <p className="text-sm text-zinc-700">Hecho con ❤ por Francisco Matias Prieto Giorgis.</p>
                         </div>
                     </div>

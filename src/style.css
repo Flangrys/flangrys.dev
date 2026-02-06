@@ -9,6 +9,7 @@
 @layer base {
     html {
         color-scheme: light;
+        scroll-behavior: smooth;
     }
 
     html.dark {
@@ -23,8 +24,12 @@
         @apply w-full h-dvh;
     }
 
+    code, kbd, samp, pre {
+        @apply font-mono font-light;
+    }
+
     h1, h2, h3, h4, h5, h6 {
-        @apply font-serif font-bold py-4;
+        @apply font-serif font-bold pb-4;
     }
 
     h1 {
@@ -43,7 +48,7 @@
         @apply text-3xl;
     }
 
-    h6 {
+    h5 {
         @apply text-2xl;
     }
 
@@ -55,9 +60,36 @@
         @apply font-sans uppercase;
     }
 
-    .header-group span,
-    .header-group p {
-        @apply py-2;
+    a:hover {
+        @apply underline;
+    }
+
+    .header-group {
+        p, span {
+            @apply py-2;
+        }
+
+        span {
+            @apply capitalize
+        }
+    }
+
+    form {
+        input, select {
+            @apply text-sm;
+        }
+
+        .field {
+            @apply flex items-center rounded-md;
+            @apply outline-1 -outline-offset-1 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2;
+        }
+
+        .field input {
+            @apply grow focus:outline-none;
+        }
+        .field select {
+            @apply w-full appearance-none rounded-md focus:outline-2 focus:-outline-offset-2;
+        }
     }
 
 }

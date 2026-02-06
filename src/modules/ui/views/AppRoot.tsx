@@ -1,6 +1,6 @@
 import type {ReactNode} from "react";
 import AppThemeButton from "../components/app/AppThemeButton.tsx";
-import {AppNavbar} from "../components/app/AppNavbar.tsx";
+import AppNavbar from "../components/app/AppNavbar.tsx";
 import {AppFooter} from "../components/app/AppFooter.tsx";
 
 type BaseLayoutProps = {

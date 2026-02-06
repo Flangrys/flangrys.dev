@@ -1,4 +1,5 @@
 import type {ReactNode} from "react";
+import type {TailwindBreaks} from "./tailwind.types.ts";
 
 export interface ThemeContextType {
     theme: Theme;
@@ -12,3 +13,7 @@ export interface ThemeProviderProps {
 }
 
 export type Theme = "light" | "dark";
+
+export type ButtonVariant = "default" | "info" | "success" | "warning" | "error" | "special";
+
+export type ContainerVariant = TailwindBreaks;
