@@ -26,6 +26,10 @@
 
     code, kbd, samp, pre {
         @apply font-mono font-light;
+
+        &.code {
+            @apply italic font-bold;
+        }
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -56,8 +60,9 @@
         @apply text-xl;
     }
 
-    a, button {
+    a, button, input[type="submit"], input[type="button"] {
         @apply font-sans uppercase;
+        @apply transition-colors;
     }
 
     a:hover {
@@ -71,6 +76,10 @@
 
         span {
             @apply capitalize
+        }
+
+        ul:last-child {
+            @apply py-2
         }
     }
 
@@ -87,12 +96,14 @@
         .field input {
             @apply grow focus:outline-none;
         }
+
         .field select {
             @apply w-full appearance-none rounded-md focus:outline-2 focus:-outline-offset-2;
         }
     }
 
 }
+
 
 @keyframes gradient-x {
     0% {
@@ -110,7 +121,9 @@
 
 
 @layer components {
-    .divide-list-dotted li:not(:last-child)::after {
-        @apply content-['•'] mx-2;
+    .list-dotted {
+        > li:not(:last-child)::after {
+            @apply content-['•'] mx-2;
+        }
     }
 }
