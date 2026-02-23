@@ -1,7 +1,6 @@
 import {useThemeContext} from "../../hooks/useThemeContext.ts";
 import {LINK_THEME_CLASSES} from "../../constants/button.consts.ts";
-import type {LinkProps} from "../../types/props.interface.ts";
-import {Link, useLocation} from "react-router";
+import {Link, type LinkProps, useLocation} from "react-router";
 
 export function LinkComponent(props: LinkProps) {
     const {children, to} = props;
@@ -12,7 +11,8 @@ export function LinkComponent(props: LinkProps) {
     const linkTheme = LINK_THEME_CLASSES[theme][linkStateTheme];
 
     return (
-        <Link to={to} className={`px-4 py-2 no-underline outline rounded-full ${linkTheme} transition-all cursor-pointer`}>
+        <Link to={to}
+              className={`px-4 py-2 no-underline outline rounded-full ${linkTheme} transition-all cursor-pointer`}>
             {children}
         </Link>
     )
