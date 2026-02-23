@@ -1,4 +1,4 @@
-import type {ContainerProps} from "../../types/props.interface.ts";
+import type {ContainerProps} from "../../types/container-component.props.ts";
 
 export default function Container(props: ContainerProps) {
     const {children, className} = props;
