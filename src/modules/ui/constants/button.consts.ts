@@ -1,6 +1,6 @@
 export const BUTTON_THEME_CLASSES = {
-    light: "bg-indigo-200/75 text-indigo-800 outline-indigo-800 hover:bg-indigo-300",
-    dark: "bg-indigo-900 text-indigo-100 outline-indigo-800 hover:bg-indigo-900/75"
+    light: "outline-slate-800 hover:outline-slate-400 hover:bg-slate-200 active:outline-slate-800 active:hover:outline-slate-400 active:bg-slate-200",
+    dark: "outline-slate-600 hover:outline-slate-800 hover:bg-slate-800 active:outline-slate-800 active:hover:outline-slate-500 active:bg-slate-600"
 } as const;
 
 export const LINK_THEME_CLASSES = {
