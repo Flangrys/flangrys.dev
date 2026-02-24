@@ -2,8 +2,8 @@ import type {PropsWithChildren} from "react";
 import {useThemedClasses} from "../../ui/hooks/useThemedClasses.ts";
 
 interface TagComponentProps {
-    foreground: string;
-    background: string;
+    foreground?: string;
+    background?: string;
 }
 
 export function TagComponent(props: PropsWithChildren<TagComponentProps>) {
