@@ -1,23 +1,21 @@
-import {useThemeContext} from "../../hooks/useThemeContext.ts";
-import {BUTTON_THEME_CLASSES} from "../../constants/button.consts.ts";
-import type {ButtonHTMLAttributes, PropsWithChildren} from "react";
-import type {ButtonVariant} from "../../types/theme.interface.ts";
+import type {ButtonProps} from "../../types/button-component.props.ts";
+import {useThemedClasses} from "../../hooks/useThemedClasses.ts";
 
-interface ButtonProps extends PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> {
-    variant?: ButtonVariant;
+const ButtonThemeClasses = {
+    light: "outline-slate-800 hover:outline-slate-400 hover:bg-slate-200 active:outline-slate-800 active:hover:outline-slate-400 active:bg-slate-200",
+    dark: "outline-slate-600 hover:outline-slate-800 hover:bg-slate-800 active:outline-slate-800 active:hover:outline-slate-500 active:bg-slate-600"
 }
 
 export function ButtonComponent(props: ButtonProps) {
     const {children, onClick} = props;
-    const {theme} = useThemeContext();
 
-    const buttonTheme = BUTTON_THEME_CLASSES[theme];
+    const themedClasses = useThemedClasses({button: ButtonThemeClasses});
 
     return (
         <button
             {...props}
             onClick={onClick}
-            className={`px-4 py-2 outline rounded-full ${buttonTheme} transition-all cursor-pointer`}
+            className={`px-4 py-2 outline rounded-full transition-all cursor-pointer ${themedClasses.button}`}
         >
             {children}
         </button>
