@@ -1,4 +1,6 @@
 {
+  "extends": "./tsconfig.json",
+
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "ES2022",
@@ -21,7 +23,17 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    /* Import Aliases */
+    "paths": {
+      "@/*": ["./src/*"],
+      "@libs/*": ["./src/libs/*"],
+      "@types/*": ["./src/types/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@modules/*": ["./src/modules/*"]
+    }
   },
-  "include": ["src"]
+  "include": ["src", "**/*.ts", "**/*.tsx"]
 }
