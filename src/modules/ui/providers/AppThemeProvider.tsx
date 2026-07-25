@@ -4,28 +4,12 @@ import {useEffect, useState} from "react";
 
 export default function AppThemeProvider({children}: ThemeProviderProps) {
     const [theme, setThemeState] = useState<Theme>(() => {
-        if (!window) return "dark";
-
-        const savedTheme = window.localStorage.getItem('theme');
-
-        switch (savedTheme) {
-            case "light":
-            case "dark":
-                return savedTheme;
-
-            default:
-                return "dark";
-        }
+        return window.matchMedia('(prefers-color-scheme: light)').matches ? "light" : "dark"
     });
 
     useEffect(() => {
-        if (!window) return;
-
-        const root = document.documentElement;
-
-        root.classList.remove('light', 'dark');
-        root.classList.add(theme);
-
+        document.documentElement.classList.remove('light', 'dark');
+        document.documentElement.classList.add(theme);
         localStorage.setItem('theme', theme);
     }, [theme]);
 
