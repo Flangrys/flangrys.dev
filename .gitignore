@@ -24,4 +24,6 @@ dist-ssr
 *.sw?
 
 # Environment
-/.env
+.env*
+.env.local
+.env.production
