@@ -1,6 +1,6 @@
 import {motion} from "motion/react";
 
-export function InvisibleFormPhaseComponent() {
+export function FormInvisiblePhaseComponent() {
     return (
         <motion.div
             key="idle"

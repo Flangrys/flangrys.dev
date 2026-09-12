@@ -1,5 +1,7 @@
-import {stack, type StackType} from "@libs/portfolio.const.ts";
+import {stack} from "@libs/portfolio.const.ts";
 import {SectionTitleComponent} from "./SectionTitleComponent.tsx";
+import {SectionContainerComponent} from "@modules/portfolio/components/sections/SectionContainerComponent.tsx";
+import type {StackType} from "@libs/portfolio.types.ts";
 
 function StackItem(stack: StackType) {
     return (
@@ -29,11 +31,11 @@ function StackItem(stack: StackType) {
 
 export function StackSectionComponent() {
     return (
-        <section className="mx-auto max-w-5xl px-6 py-20">
+        <SectionContainerComponent id="stack">
             <SectionTitleComponent eyebrow="04" title="Stack & Certificaciones"/>
             <div className="mt-10 grid gap-10 md:grid-cols-2">
                 {stack.map(StackItem)}
             </div>
-        </section>
+        </SectionContainerComponent>
     );
 }

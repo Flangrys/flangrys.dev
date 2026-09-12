@@ -1,55 +1,71 @@
+import SVGArrowUpRightIcon from "/src/assets/arrow-up-right-icon.svg?react";
 import {SectionTitleComponent} from "./SectionTitleComponent.tsx";
-import {projects, type ProjectType} from "@libs/portfolio.const.ts";
+import {SectionContainerComponent} from "@modules/portfolio/components/sections/SectionContainerComponent.tsx";
+import {projects} from "@libs/portfolio.const.ts";
+import type {ProjectType} from "@libs/portfolio.types.ts";
 
-function ProjectItem(p: ProjectType, i: number) {
+
+function ProjectItemLink(props: { url?: string }) {
+    const classes = {
+        enabled: "text-secondary bg-primary hover:bg-accent group-hover:bg-accent group-hover:scale-105",
+        disabled: "text-muted-foreground bg-muted cursor-not-allowed"
+    }
+
     return (
-        <a key={p.name + i}
-           href={p.url || "#"}
-           target="_blank"
-           rel="noopener noreferrer"
-           className="group relative block overflow-hidden rounded-2xl p-6 transition-all"
-           style={{
-               border:
-                   "1px solid color-mix(in oklab, var(--primary) 16%, transparent)",
-               background:
-                   "color-mix(in oklab, var(--primary) 3%, var(--background))",
-           }}
+        <a href={props.url}
+           rel={props.url}
+           target={props.url ? "_blank" : undefined}
+           className={
+               `flex items-center justify-center p-2 rounded-full transition-all ${props.url ? classes.enabled : classes.disabled}`
+           }
         >
-            <div className="flex items-start justify-between gap-4">
-                <div>
-                    <h3 className="text-lg font-semibold text-foreground">{p.name}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-foreground/75">{p.tagline}</p>
-                </div>
-                <span className="text-xs font-mono text-muted-foreground">{p.year}</span>
-            </div>
-            <div className="mt-6 flex items-center justify-between">
-                <ul className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-muted-foreground">
-                    {p.stack.map((s) => (<li key={s}>{s}</li>))}
-                </ul>
-                {p.url ? (
-                    <span aria-hidden className="text-sm text-primary transition-transform group-hover:translate-x-0.5">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6.4 18L5 16.6L14.6 7H6V5H18V17H16V8.4L6.4 18Z" fill="currentColor"/>
-                        </svg>
-                    </span>
-                ) : (
-                    <span className="text-xs text-muted-foreground/70">Pronto</span>
-                )}
-            </div>
+            <SVGArrowUpRightIcon className="size-8 lg:size-4"/>
         </a>
+    )
+}
+
+function ProjectItem(project: ProjectType, i: number) {
+    return (
+        <div key={project.name + i}
+             className="group relative block overflow-hidden rounded-2xl p-6 transition-all"
+             style={{
+                 border: "1px solid color-mix(in oklab, var(--primary) 16%, transparent)",
+                 background: "color-mix(in oklab, var(--primary) 3%, var(--background))",
+             }}
+        >
+            <div className="flex flex-col justify-between h-full">
+                <div className="flex flex-col items-start justify-between gap-4">
+                    <div className="flex items-center justify-between w-full border-b-2 border-border *:mb-2">
+                        <h4 className="text-foreground">{project.name}</h4>
+                        <span
+                            className="text-base md:text-sm lg:text-xs font-mono text-muted-foreground">{project.year}</span>
+                    </div>
+                    <p className="mt-2 text-foreground/75">{project.tagline}</p>
+                </div>
+
+                <div className="mt-4 flex items-center justify-between">
+                    <ul className="flex flex-wrap gap-x-3 gap-y-1 text-lg md:text-sm lg:text-xs text-muted-foreground">
+                        {project.stack.map(stack => <li key={stack}>{stack}</li>)}
+                    </ul>
+
+                    <ProjectItemLink url={project.url}/>
+                </div>
+            </div>
+        </div>
     );
 }
 
 export function ProjectsSectionComponent() {
     return (
-        <section id="work" className="mx-auto max-w-5xl px-6 py-20">
+        <SectionContainerComponent id="projects">
             <SectionTitleComponent eyebrow="03" title="Proyectos seleccionados"/>
-            <p className="mt-4 max-w-xl text-sm text-muted-foreground">
+            <p className="mb-10 eyebrow text-muted-foreground">
                 Cada proyecto vive en su propio sitio. Hacé click para abrirlo en una nueva pestaña.
             </p>
-            <div className="mt-10 grid gap-4 md:grid-cols-2">
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 grid-flow-row gap-4">
                 {projects.map(ProjectItem)}
             </div>
-        </section>
+        </SectionContainerComponent>
     );
 }

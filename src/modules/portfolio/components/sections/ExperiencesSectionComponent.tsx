@@ -1,21 +1,23 @@
 import {SectionTitleComponent} from "./SectionTitleComponent.tsx";
-import {experience, type ExperienceType} from "@libs/portfolio.const.ts";
+import {experience} from "@libs/portfolio.const.ts";
+import {SectionContainerComponent} from "@modules/portfolio/components/sections/SectionContainerComponent.tsx";
+import type {ExperienceType} from "@libs/portfolio.types.ts";
 
 function ExperienceItem(experience: ExperienceType) {
     return (
         <li
             key={experience.role + experience.company}
-            className="grid gap-2 md:grid-cols-[0.3fr_1fr] md:gap-8"
+            className="flex flex-col flex-wrap lg:flex-nowrap lg:flex-row gap-2 lg:gap-8 border-b-2 border-border"
         >
-            <div className="text-sm text-muted-foreground">{experience.period}</div>
-            <div>
-                <h3 className="text-lg font-medium text-foreground">
-                    {experience.role}{" "}
-                    <span className="text-muted-foreground"> @ {experience.company}</span>
-                </h3>
-                <p className="mt-2 text-base leading-relaxed text-foreground/75">
-                    {experience.description}
-                </p>
+            <p className="flex-2/5 eyebrow text-muted-foreground">{experience.period}</p>
+
+            <div className="basis-full">
+                <h4 className="text-foreground">
+                    {experience.role}
+                    <span className="text-muted-foreground">
+                        {" "} @ {experience.company}
+                    </span>
+                </h4>
             </div>
         </li>
     );
@@ -23,11 +25,11 @@ function ExperienceItem(experience: ExperienceType) {
 
 export function ExperiencesSectionComponent() {
     return (
-        <section id="experience" className="mx-auto max-w-5xl px-6 py-20">
-            <SectionTitleComponent eyebrow="02" title="Experiencia" />
-            <ol className="mt-10 space-y-10">
+        <SectionContainerComponent id="experience">
+            <SectionTitleComponent eyebrow="02" title="Experiencia"/>
+            <ol className="space-y-10">
                 {experience.map(ExperienceItem)}
             </ol>
-        </section>
+        </SectionContainerComponent>
     );
 }

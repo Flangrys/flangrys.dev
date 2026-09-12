@@ -1,5 +1,5 @@
 import {motion, useReducedMotion} from "motion/react";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 
 interface Dot {
     x: number;
@@ -10,10 +10,7 @@ interface Dot {
 
 export default function ParticlesWaveComponent() {
     const reduce = useReducedMotion();
-    const [mounted, setMounted] = useState(false);
-
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    useEffect(() => setMounted(true), []);
+    const [mounted] = useState(true);
 
     const cols = 24;
     const rows = 14;
@@ -31,14 +28,7 @@ export default function ParticlesWaveComponent() {
     }
 
     return (
-        <div
-            aria-hidden
-            className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
-            style={{
-                background:
-                    "radial-gradient(ellipse at 20% 0%, color-mix(in oklab, var(--primary) 12%, transparent), transparent 60%), radial-gradient(ellipse at 90% 100%, color-mix(in oklab, var(--accent) 14%, transparent), transparent 55%), var(--background)",
-            }}
-        >
+        <div aria-hidden className="fixed inset-0 -z-50 pointer-events-none bg-background-gradient">
             <svg
                 viewBox={`0 0 ${width} ${height}`}
                 preserveAspectRatio="xMidYMid slice"
@@ -64,13 +54,32 @@ export default function ParticlesWaveComponent() {
                             }
                             transition={
                                 useMotion
-                                    ? { duration: 6 + (dot.row % 4), repeat: Infinity, ease: "easeInOut", delay: phase * 0.3}
+                                    ? {
+                                        duration: 6 + (dot.row % 4),
+                                        repeat: Infinity,
+                                        ease: "easeInOut",
+                                        delay: phase * 0.3
+                                    }
                                     : undefined
                             }
                         />
                     );
                 })}
             </svg>
+
+            <div className="min-h-screen w-full relative">
+                <div
+                    className="absolute inset-0 -z-10"
+                    style={{
+                        background: `
+         radial-gradient(ellipse 80% 60% at 5% 40%, rgba(175, 109, 255, 0.48), transparent 67%),
+        radial-gradient(ellipse 70% 60% at 45% 45%, rgba(255, 100, 180, 0.41), transparent 67%),
+        radial-gradient(ellipse 62% 52% at 83% 76%, rgba(255, 235, 170, 0.44), transparent 63%),
+        radial-gradient(ellipse 60% 48% at 75% 20%, rgba(120, 190, 255, 0.36), transparent 66%),
+        linear-gradient(45deg, #f7eaff 0%, #fde2ea 100%)`,
+                    }}
+                />
+            </div>
         </div>
     );
 }

@@ -3,10 +3,7 @@ import { contact } from "@libs/portfolio.const.ts";
 
 export function EmailContactLink() {
   return (
-    <a
-      href={`mailto:${contact.professionalContact}`}
-      className="text-muted-foreground transition-colors hover:text-foreground"
-    >
+    <a href={`mailto:${contact.professionalContact}`}>
       <SvgGenericMailIcon/>
     </a>
   );
