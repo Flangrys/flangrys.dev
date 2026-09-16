@@ -10,28 +10,9 @@ import {FormChoicePhaseComponent} from "@modules/portfolio/components/contact/Fo
 import {VITE_CLOUDFLARE_WORKER_URL, VITE_TURNSTILE_SITE_KEY} from "@libs/environments.const.ts";
 import {Turnstile} from "@marsidev/react-turnstile";
 import {useMutation} from "@tanstack/react-query";
+import {WORK_MODEL_OPTIONS, WORK_ROLE_OPTIONS} from "@libs/portfolio.const.ts";
+import type {Answers, Question} from "@libs/portfolio.types.ts";
 
-type Question = number;
-
-type Answers = {
-    work_position_id: number; work_arrangement_id: number; work_summary: string; email: string;
-}
-
-const WORK_ROLE_OPTIONS = [
-    {id: 1, label: "Full Stack Developer"},
-    {id: 2, label: "Frontend Developer"},
-    {id: 3, label: "Backend Developer"},
-    {id: 4, label: "Platform Engineer"},
-    {id: 5, label: "FDE"},
-    {id: 6, label: "SRE"},
-    {id: 0, label: "Otro"}
-] as const;
-
-const WORK_MODEL_OPTIONS = [
-    {id: 1, label: "Remoto"},
-    {id: 2, label: "Híbrido"},
-    {id: 3, label: "On-Site"}
-] as const;
 
 export function ContactFormComponent() {
     const shouldReduceMotion = useReducedMotion();
@@ -40,7 +21,7 @@ export function ContactFormComponent() {
     const [formAnswers, setFormAnswers] = useState<Partial<Answers>>({});
 
     const {isPending, mutate} = useMutation({
-        mutationFn: async function(answer: Answers){
+        mutationFn: async function (answer: Answers) {
             const res = await fetch(VITE_CLOUDFLARE_WORKER_URL + "/contact/contact-for-work", {
                 method: "PUT",
                 headers: {
@@ -105,7 +86,7 @@ export function ContactFormComponent() {
     }, [currentFormPhase, formAnswers, turnstileToken]);
 
     const advanceDisabled = !isCurrentStepValid || isPending;
-    const undoDisabled = currentFormPhase === 0 || currentFormPhase === 5 || isPending;
+    const undoDisabled = currentFormPhase === 0 || currentFormPhase === 5;
 
     function updateAnswer<K extends keyof Answers>(key: K, value: Answers[K]) {
         setFormAnswers((prev) => ({...prev, [key]: value}));

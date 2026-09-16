@@ -21,3 +21,13 @@ export interface ProjectType {
     url?: string;
     year: string;
 }
+
+
+export type Question = number;
+
+export interface Answers {
+    work_position_id: number;
+    work_arrangement_id: number;
+    work_summary: string;
+    email: string;
+}

@@ -58,41 +58,48 @@ export const experience: ExperienceType[] = [
 
 export const projects: ProjectType[] = [
     {
-        name: "Whiteboard Studio – ECC",
-        tagline: "Se trata de plataforma de planificacion de recursos empresariales cloud-hybrid, modular" +
-            " y open-source.",
-        stack: ["SAAS", "ERP", "PWA", "Microservices", "Cloud"],
+        name: "Whiteboard Studio ECC",
+        tagline: "Una plataforma de gestion de recursos empresariales open-source, cloud-hybrid y modular; que" +
+            " ofrece diferentes soluciones de negocio en una sola aplicación.",
+        stack: ["SaaS", "PWA", "Multitenant", "OSS", "AWS"],
         year: "2026",
     },
     {
         name: "Agroestim",
         tagline: "Se trata de una herramienta para estimar el rendimiento de la producción agrícola de cultivos" +
             " variados, en colaboración con el Instituto Nacional de Tecnologia Agropecuaria",
-        stack: ["Agro", "Data Analysis", "Crop Analysis", "Python", "Django", "SSR"],
+        stack: ["RAG", "Go", "Microservices", "React 19", "Typescript", "TailwindCSS"],
         year: "2023",
     },
     {
         name: "blog.flangrys.dev",
-        tagline: "Se trata de mi blog personal con el que pretendo compartir mis proyectos, conocimientos y" +
-            " experiencias con la comunidad.",
-        stack: ["Blog", "NextJS", "TailwindCSS", "SSR", "Cloudflare"],
-        url: "https://blog.flangrys.dev",
+        tagline: "Una aplicacion web de blogging para compartir recursos academicos, experiencias profesionales y" +
+            " otros articulos sobre tecnología. ",
+        stack: ["Blog", "NextJS", "Typescript", "TailwindCSS", "Cloudflare"],
         year: "2026",
     },
     {
-        name: "boomerang.flangrys.dev",
-        tagline: "Se trata de un software de servidor de Minecraft, pensado para soportar ambas ediciones del juego, " +
-            "con soporte para plugins y altamente personalizable.",
-        stack: ["Open Source", "Java", "NIO", "Netty"],
+        name: "Boomerang MC",
+        tagline: "Una re-implementacion open-source del software de servidor de Minecraft, cuya propuesta es" +
+            " permitir crear, extender y modificar facilmente las reglas del gameplay.",
+        stack: ["Minecraft", "Java", "NIO", "Netty", "OSS"],
         url: "https://github.com/flangrys/boomerang",
         year: "2025",
     },
-    {
-        name: "www.flangrys.dev",
-        tagline: "Se trata de este mismo portfolio, diseñado para conectar con otros profesionales y desmotra que se" +
-            "puede desplegar un viernes. hahan't",
-        stack: ["React", "Vite", "TailwindCSS", "Github Actions", "Cloudflare"],
-        url: "https://github.com/flangrys/flangrys.dev",
-        year: "2023",
-    },
 ]
+
+export const WORK_ROLE_OPTIONS = [
+    {id: 1, label: "Full Stack Engineer"},
+    {id: 2, label: "Frontend Engineer"},
+    {id: 3, label: "Backend Engineer"},
+    {id: 4, label: "Platform Engineer"},
+    {id: 5, label: "Forward Deployed Engineer"},
+    {id: 6, label: "SRE"},
+    {id: 0, label: "Otro"}
+] as const;
+
+export const WORK_MODEL_OPTIONS = [
+    {id: 1, label: "Remoto"},
+    {id: 2, label: "Híbrido"},
+    {id: 3, label: "On-Site"}
+] as const;

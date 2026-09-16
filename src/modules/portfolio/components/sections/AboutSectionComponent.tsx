@@ -5,13 +5,18 @@ export function AboutSectionComponent() {
     return (
         <SectionContainerComponent id="about">
             <SectionTitleComponent eyebrow="01" title="Sobre mí"/>
-            <div className="flex flex-wrap gap-8 text-foreground/80 md:grid-cols-2">
+            <article className="flex flex-wrap text-foreground/80">
                 <p>
-                    A lo largo de mi carrera he acompañado el desarrollo y crecimiento de los negocios traduciendo
-                    desafíos técnicos complejos en sistemas resilientes, confiables y escalables; implementando procesos
-                    de CI/CD, entregando funcionalidades en menor tiempo.
+                    He acompañado el crecimiento de las empresas traduciendo las necesidades técnicas en sistemas
+                    resilientes, fiables y escalables; alineados al contexto y las estrategias del negocio.
                 </p>
-            </div>
+
+                <p>
+                    Me enfoco en producir <b>resultados reales</b>, con <b>procedimientos transparentes</b>, y <b>
+                    decisiones estratégicas consistentes</b>. Vendo soluciones que mueven las metricas del negocio,
+                    con plazos realistas, bien documentados, y con soporte extendido.
+                </p>
+            </article>
         </SectionContainerComponent>
     );
 }

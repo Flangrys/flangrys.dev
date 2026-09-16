@@ -27,9 +27,11 @@ export function ExperiencesSectionComponent() {
     return (
         <SectionContainerComponent id="experience">
             <SectionTitleComponent eyebrow="02" title="Experiencia"/>
-            <ol className="space-y-10">
-                {experience.map(ExperienceItem)}
-            </ol>
+            <div className="mt-10">
+                <ol className="space-y-10">
+                    {experience.map(ExperienceItem)}
+                </ol>
+            </div>
         </SectionContainerComponent>
     );
 }

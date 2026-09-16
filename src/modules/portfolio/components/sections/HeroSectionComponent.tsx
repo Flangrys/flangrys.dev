@@ -34,7 +34,7 @@ export function HeroSectionComponent() {
                         </p>
 
                         <p className="leading-relaxed text-foreground/80">
-                            Ingeniero de Software Full Stack, con foco en Backend y con experiencia en el sector
+                            Soy ingeniero de Software Full Stack, con foco en Backend y con experiencia en el sector
                             logístico y agrícola. Lidero el diseño y desarrollo de soluciones end-to-end, escalables y de
                             alto rendimiento.
                         </p>
