@@ -4,6 +4,7 @@ import {HelloContactLinkComponent} from "@modules/portfolio/components/links/Hel
 export function FooterComponent() {
     return (
         <footer
+            id="contact"
             className="relative mt-20 border-t"
             style={{borderColor: "color-mix(in oklab, var(--primary) 15%, transparent)"}}
         >

@@ -18,6 +18,7 @@ export function HeaderComponent() {
                                 <a href="#about">Sobre mi</a>
                                 <a href="#experience">Experiencia</a>
                                 <a href="#projects">Seleccion de proyectos</a>
+                                <a href="#contact">Contacto</a>
                             </div>
 
                             <div className="flex items-center align-middle gap-6">
