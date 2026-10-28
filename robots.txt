@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Allow: /llms.txt
+
+Sitemap: https://flangrys.dev/sitemap.xml
