@@ -1,0 +1,28 @@
+# Francisco Matías Prieto Giorgis — Ingeniero de Software Full Stack
+
+Francisco Matías es un **ingeniero de software Full Stack, especializado en Backend**, radicado en Córdoba, Argentina. Cuenta con experiencia en los sectores logístico y agrícola, donde diseña y desarrolla soluciones end-to-end escalables, resilientes y de alto rendimiento, alineadas con los objetivos del negocio.
+
+## Experiencia profesional
+
+- **Whiteboard Studio** — Software Engineer (febrero de 2024 – presente).
+- **Instituto Nacional de Tecnología Agropecuaria (INTA)** — Software Engineer (agosto – diciembre de 2023).
+
+## Proyectos destacados
+
+- **Whiteboard Studio ECC:** plataforma open source de gestión de recursos empresariales, modular, multitenant y cloud-hybrid.
+- **Agroestim:** herramienta de estimación del rendimiento agrícola, desarrollada en colaboración con el INTA, con tecnologías como Go, React y microservicios.
+- **blog.flangrys.dev:** plataforma de blogging dedicada a compartir recursos académicos, experiencias profesionales y artículos sobre tecnología.
+- **Boomerang MC:** reimplementación open source del servidor de Minecraft, orientada a facilitar la modificación y extensión de las reglas de juego.
+
+## Competencias técnicas
+
+Su stack abarca desarrollo Backend con Python, FastAPI, Django, Java, Spring Boot, Go y TypeScript; desarrollo Frontend con React, Next.js, Angular y Tailwind CSS; e infraestructura como código, cloud computing y DevOps con Terraform, OpenTofu, AWS, Cloudflare, Docker y Kubernetes. También trabaja con herramientas de control de versiones y desarrollo asistido por IA.
+
+## Educación
+
+- **Licenciatura en Ciencias de la Computación** — Universidad Nacional de Río Cuarto.
+- **Técnico en Programación** — IPETyM N.º 257 «Dr. René Favaloro».
+
+## Enfoque profesional
+
+Su filosofía de trabajo se centra en transformar necesidades empresariales en soluciones tecnológicas fiables y escalables, priorizando resultados medibles, decisiones estratégicas, documentación clara, plazos realistas y soporte extendido.
